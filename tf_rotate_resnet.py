@@ -146,8 +146,8 @@ with graph.as_default():
 	output_resnet = resnet50(x_image)
 	print('output_resnet =', output_resnet)
 
-	flat = tf.reshape(output_resnet, [-1, 2048])
-	f1 = fullyConnectedLayer(flat, input_size=2048, num_neurons=256, 
+	flat = tf.reshape(output_resnet, [-1, 1000])
+	f1 = fullyConnectedLayer(flat, input_size=1000, num_neurons=256, 
 		func=tf.nn.relu, name='F1')
 	f2 = fullyConnectedLayer(f1, input_size=256, num_neurons=1, 
 		func=None, name='F2')	
